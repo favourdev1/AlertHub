@@ -18,9 +18,13 @@
     },
     "homepage": "https://github.com/favourdev1/AlertHub#readme",
     "devDependencies": {
+        "browserify": "^17.0.0",
         "css-minify": "^2.0.0",
+        "esmify": "^2.1.1",
         "minify": "^10.3.0",
-        "terser": "^5.19.2"
+        "terser": "^5.21.0",
+        "webpack": "^5.88.2",
+        "webpack-cli": "^5.1.4"
     },
     "dependencies": {
         "alerthub": "^1.0.1",

@@ -14,19 +14,22 @@
     position: fixed;
     top: 20px;
     /* right: 20px; */
-    padding: 10px;
+    /* margin: 10px; */
     z-index: 99999;
     width: 100%;
+    pointer-events: none;
 }
 
 .alert-hub {
-    background-color: #f0f0f0;
+    background-color: #4d4a4a;
     padding: 15px;
     margin-bottom: 10px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     /* opacity: 1; */
-    min-width: max-content;
+    position: fixed;
+    width: -webkit-fill-available;
+    margin: 10px;
 }
 
 .fade-in {
@@ -214,22 +217,22 @@
 /* Small devices (landscape phones, 576px and up) */
 
 @media (min-width: 576px) {
-    .alert-hub-container {
+    .alert-hub {
         max-width: 80%;
     }
-    .alert-hub-container.top-right {
+    .alert-hub.top-right {
         top: 20px;
         right: 0px;
     }
-    .alert-hub-container.bottom-right {
+    .alert-hub.bottom-right {
         bottom: 20px;
         right: 0px;
     }
-    .alert-hub-container.top-left {
+    .alert-hub.top-left {
         top: 20px;
         left: 0px;
     }
-    .alert-hub-container.bottom-left {
+    .alert-hub.bottom-left {
         bottom: 20px;
         left: 0px;
     }
@@ -239,22 +242,22 @@
 /* Medium devices (tablets, 768px and up) */
 
 @media (min-width: 768px) {
-    .alert-hub-container {
+    .alert-hub {
         max-width: 40%;
     }
-    .alert-hub-container.top-right {
+    .alert-hub.top-right {
         top: 20px;
         right: 20px;
     }
-    .alert-hub-container.bottom-right {
+    .alert-hub.bottom-right {
         bottom: 20px;
         right: 20px;
     }
-    .alert-hub-container.top-left {
+    .alert-hub.top-left {
         top: 20px;
         left: 20px;
     }
-    .alert-hub-container.bottom-left {
+    .alert-hub.bottom-left {
         bottom: 20px;
         left: 20px;
     }
@@ -264,7 +267,7 @@
 /* Large devices (desktops, 992px and up) */
 
 @media (min-width: 992px) {
-    .alert-hub-container {
+    .alert-hub {
         max-width: 30%;
     }
 }
@@ -273,7 +276,7 @@
 /* Extra large devices (large desktops, 1200px and up) */
 
 @media (min-width: 1200px) {
-    .alert-hub-container {
+    .alert-hub {
         max-width: 30%;
     }
 }
@@ -282,7 +285,7 @@
 /* Extra extra large devices (larger desktops, 1400px and up) */
 
 @media (min-width: 1400px) {
-    .alert-hub-container {
+    .alert-hub {
         max-width: 20%;
     }
 }

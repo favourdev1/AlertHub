@@ -6,7 +6,7 @@ class AlertHub extends icon {
         this.defaultAnimationName = "";
         this.maxLength = 150;
         this.alertContainer = document.createElement("div");
-        this.alertContainer.className = "alert-hub-container top-right";
+        this.alertContainer.className = "alert-hub-container ";
         document.querySelector(parentElement).appendChild(this.alertContainer);
         let {
             position = "top-right",
@@ -29,7 +29,7 @@ class AlertHub extends icon {
 
     showAlert(params) {
         let {
-            title = '',
+            title = "",
                 description,
                 position = this.position,
                 type = this.type,
@@ -56,10 +56,11 @@ class AlertHub extends icon {
             animation,
             closeButton,
             closeButtonSize,
-            showIcon
+            showIcon,
+            position
         );
 
-        this.configureAlertContainer(position);
+        this.configureAlertContainer();
         this.alertContainer.appendChild(alertBox);
 
         if (closeButton) {
@@ -79,13 +80,6 @@ class AlertHub extends icon {
                 iconImage = this.ErrorIcon();
                 break;
 
-            case "info":
-                iconImage = this.InfoIcon();
-                break;
-
-            case alertType.includes("ba"):
-                console.log("contains value");
-                break;
             default:
                 iconImage = document.createElement("div");
                 break;
@@ -135,10 +129,11 @@ class AlertHub extends icon {
         animation,
         closeButton,
         closeButtonSize,
-        showIcon
+        showIcon,
+        position
     ) {
         const alertBox = document.createElement("div");
-        alertBox.className = `alert-hub ${type} ${animation}`;
+        alertBox.className = `alert-hub  ${position} ${type} ${animation}`;
 
         if (showIcon) {
             alertBox.appendChild(this.addIcon(type));
@@ -146,6 +141,7 @@ class AlertHub extends icon {
         // console.log(this.addIcon(type));
         const contentContainer = document.createElement("div");
         contentContainer.style.width = "90%";
+        contentContainer.style.paddingRight = "50px";
 
         contentContainer.appendChild(this.titleText(title));
 
@@ -187,8 +183,8 @@ class AlertHub extends icon {
         return this.defaultExitButtonSize;
     }
 
-    configureAlertContainer(position) {
-        this.alertContainer.className = `alert-hub-container ${position}`;
+    configureAlertContainer() {
+        this.alertContainer.className = `alert-hub-container `;
     }
 
     setMaxDescriptionLength(length, description) {
@@ -218,7 +214,7 @@ class AlertHub extends icon {
 
     CloseAlertOnClick(alertBox) {
         const closeButtonElement = alertBox.querySelector(
-            `.alert - hub - close - button `
+            `.alert-hub-close-button `
         );
         closeButtonElement.addEventListener("click", () => {
             this.CloseAlert(alertBox);

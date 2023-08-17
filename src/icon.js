@@ -75,5 +75,3 @@ class icon {
     }
 
 }
-
-// module.exports = icon;

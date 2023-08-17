@@ -5,22 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" href="../src/Alerthub.css">
+    <!-- <link rel="stylesheet" href="../src/Alerthub.css"> -->
     <script src="../src/icon.js"></script>
-    <script src="../src/Alerthub.js"></script>
 
-    <!-- <link rel="stylesheet" href="../node_modules/alerthub/dist/css/Alerthub.min.css">
-            <script src="../node_modules/alerthub/dist/js/alerthub.min.js"></script> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <link rel="stylesheet" href="../dist/css/Alerthub.min.css">
+    <script src="../dist/js/alerthub.min.js"></script>
+
+
+
+
+
 </head>
 
 <body>
 
-    <button id="show-alert-button" class="btn btn-primary m-5">Click me!</button>
-    <button id="btn" class="btn btn-secondary">Click here again
-        <i class='bx bxl-facebook-square'></i> </button>
+    <form action=" ">
+        <input type="text " name=" " id=" ">
+        <input type="text " name=" " id=" ">
+        <input type="text " name=" " id=" ">
+        <input type="text " name=" " id=" ">
+        <input type="text " name=" " id=" ">
+        <input type="text " name=" " id="
+                                        ">
+        <input type="text " name=" " id=" "></form>
+    <form action=" ">
+        <input type="text " name=" " id=" ">
+        <input type="text " name=" " id=" ">
+        <input type="text " name=" " id=" ">
+        <input type="text " name=" " id=" ">
+        <input type="text " name=" " id=" ">
+        <input type="text " name=" " id="
+                                        ">
+        <input type="text " name=" " id=" "></form>
+    <form action=" ">
+        <input type="text " name=" " id=" ">
+        <input type="text " name=" " id=" ">
+        <input type="text " name=" " id=" ">
+        <input type="text " name=" " id=" ">
+        <input type="text " name=" " id=" ">
+        <input type="text " name=" " id="
+                                        ">
+        <input type="text " name=" " id=" "></form>
+    <form action=" ">
+        <input type="text " name=" " id=" ">
+        <input type="text " name=" " id=" ">
+        <input type="text " name=" " id=" ">
+        <input type="text " name=" " id=" ">
+        <input type="text " name=" " id=" ">
+        <input type="text " name=" " id="
+                                        ">
+        <input type="text " name=" " id=" "></form>
+    <form action=" ">
+        <input type="text " name=" " id=" ">
+        <input type="text " name=" " id=" ">
+        <input type="text " name=" " id=" ">
+        <input type="text " name=" " id=" ">
+        <input type="text " name=" " id=" ">
+        <input type="text " name=" " id="
+                                        ">
+        <input type="text " name=" " id=" "></form>
+
+
+    <button id="show-alert-button" class=" btn btn-primary m-5 ">Click me!</button>
+    <button id="btn" class="btn btn-secondary ">Click here again
+            <i class='bx bxl-facebook-square'></i>
+        </button>
+
+
 
 
     <script>
@@ -28,25 +81,25 @@
             timeout: 300,
             animation: 'fade-in',
             closeButton: false,
-            // type: "success"
+            // type: "success "
         })
 
         document.getElementById("show-alert-button").addEventListener("click", () => {
             alertInstance.showAlert({
-
-                type: "bag",
+                type: "success",
                 description: "<h2>Hello world</h2>",
+                timeout: 4,
+                // position: 'top-right'
             });
         });
-
         const button = document.getElementById("btn")
         button.addEventListener("click", () => {
-
             alertInstance.showAlert({
                 title: "This is another title",
-                description: "Error Please try again",
-                timeout: 300,
-                type: "info"
+                description: "Error Please try again ",
+                timeout: 4,
+                type: "danger",
+                // position: 'bottom-right' 
             });
         });
     </script>
@@ -56,6 +109,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 
 </body>
 
