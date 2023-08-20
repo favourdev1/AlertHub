@@ -1,0 +1,19 @@
+{
+  "name": "alerthub",
+  "version": "1.0.0",
+  "description": "a simple alert project which might scale ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/favourdev1/AlertHub.git"
+  },
+  "author": "favourdev1",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/favourdev1/AlertHub/issues"
+  },
+  "homepage": "https://github.com/favourdev1/AlertHub#readme"
+}

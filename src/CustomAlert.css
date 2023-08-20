@@ -1,0 +1,49 @@
+/* CustomAlert.css */
+
+.alert-hub-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 99999;
+}
+
+.alert-hub {
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s;
+}
+
+.alert-hub h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.alert-hub p {
+    margin: 5px 0;
+}
+
+.alert-hub.info {
+    background-color: #f0f0f0;
+    border-color: #ccc;
+    color: white;
+}
+
+.alert-hub.success {
+    background-color: #028d23;
+    border-color: #c3e6cb;
+    color: white
+}
+
+.alert-hub.warning {
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+
+.alert-hub.error {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
