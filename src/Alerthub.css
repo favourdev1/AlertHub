@@ -1,10 +1,40 @@
 /* CustomAlert.css */
 
 .alert-hub-container {
+    --bg-primary: #007bff;
+    --bg-secondary: #6c757d;
+    --bg-success: #28a745;
+    --bg-danger: #dc3545;
+    --bg-warning: #ffc107;
+    --bg-info: #17a2b8;
+    --bg-light: #f8f9fa;
+    --bg-dark: #343a40;
+    --bg-muted: #6c757d;
+    --bg-white: #fff;
     position: fixed;
+    /* top: 20px;
+    right: 20px; */
+    z-index: 99999;
+}
+
+.alert-hub-container.top-right {
     top: 20px;
     right: 20px;
-    z-index: 99999;
+}
+
+.alert-hub-container.bottom-right {
+    bottom: 20px;
+    right: 20px;
+}
+
+.alert-hub-container.top-left {
+    top: 20px;
+    left: 20px;
+}
+
+.alert-hub-container.bottom-left {
+    bottom: 20px;
+    left: 20px;
 }
 
 .alert-hub {
@@ -19,31 +49,33 @@
 
 .alert-hub h2 {
     margin: 0;
-    font-size: 18px;
+    /* font-size: 18px; */
+    font-size: small;
 }
 
 .alert-hub p {
     margin: 5px 0;
+    font-size: small;
 }
 
 .alert-hub.info {
-    background-color: #f0f0f0;
+    background-color: var(--bg-info);
     border-color: #ccc;
     color: white;
 }
 
 .alert-hub.success {
-    background-color: #028d23;
+    background-color: var(--bg-success);
     border-color: #c3e6cb;
     color: white
 }
 
 .alert-hub.warning {
-    background-color: #fff3cd;
+    background-color: var(--bg-warning);
     border-color: #ffeeba;
 }
 
 .alert-hub.error {
-    background-color: #f8d7da;
-    border-color: #f5c6cb;
+    background-color: var(--bg-danger);
+    color: white;
 }

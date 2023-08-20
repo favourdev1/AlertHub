@@ -5,32 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" href="../src/CustomAlert.css">
-    <script src="../src/customAlert.js"></script>
+    <link rel="stylesheet" href="../src/Alerthub.css">
+    <script src="../src/Alerthub.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
 <body>
 
     <button id="show-alert-button">hello world</button>
-    <script>
-        document.getElementById("show-alert-button").addEventListener("click", () => {
-            const alertInstance = new AlertHub().showAlert({
-                title: "Success!",
-                description: "This is a custom alert message with a title.",
-                type: "error",
-                timeout: 1000
-            });
 
-
-            // alertInstance.showAlert({
-            //     title: "Success!",
-            //     description: "This is a custom alert message with a title.",
-            //     type: "success",
-            //     timeout: 1000
-            // });
-        });
-    </script>
 
 
     <div class="container mt-5">
@@ -50,7 +33,7 @@
                 <label for="password">Password:</label>
                 <input type="password" class="form-control" id="password" name="password" required>
             </div>
-
+            <car>this is a car</car>
             <div class="form-group">
                 <label for="message">Message:</label>
                 <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
@@ -81,6 +64,22 @@
         </form>
     </div>
 
+    <script>
+        const alertInstance = new AlertHub("body")
+
+        document.getElementById("show-alert-button").addEventListener("click", () => {
+            alertInstance.showAlert({
+                title: "Success!",
+                description: "This is a custom alert message with a title.",
+                type: "error",
+                timeout: 1000,
+                position: "top-right"
+            });
+
+
+
+        });
+    </script>
     <!-- Include Bootstrap JS and jQuery (optional) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
