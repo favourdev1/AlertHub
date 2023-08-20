@@ -70,11 +70,14 @@
         document.getElementById("show-alert-button").addEventListener("click", () => {
             alertInstance.showAlert({
                 title: "Success!",
-                description: "This is a custom alert message with a title.",
-                type: "error",
-                timeout: 1000,
+                description: "This is a custom alert message with a title.This is a custom alert message with a titleThis is a custom alert message with a title ",
+                type: "info",
+                timeout: -3,
+                closeButton: true,
                 position: "top-right"
             });
+
+
 
 
 
