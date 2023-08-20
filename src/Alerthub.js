@@ -6,7 +6,6 @@ class AlertHub {
 
     }
 
-
     showAlert(params) {
         const { title, description, background, type = "info", timeout = 1000 } = params
         const alertBox = document.createElement("div")
