@@ -71,18 +71,17 @@
             alertInstance.showAlert({
                 title: "Success!",
                 description: "This is a custom alert message with a title.This is a custom alert message with a titleThis is a custom alert message with a title ",
-                type: "info",
-                timeout: -3,
+                type: "danger",
+                timeout: 6,
                 closeButton: true,
-                position: "top-right"
+                position: "top-right",
+                closeButtonSize: 5,
+                animation: "fade-in"
             });
-
-
-
-
-
         });
     </script>
+
+
     <!-- Include Bootstrap JS and jQuery (optional) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>

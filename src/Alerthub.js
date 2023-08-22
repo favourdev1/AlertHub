@@ -1,53 +1,63 @@
 class AlertHub {
     constructor(parentElement = "body") {
-        this.maxLength = 150
+        this.maxLength = 150;
         this.alertContainer = document.createElement("div");
         this.alertContainer.className = "alert-hub-container top-right";
         document.querySelector(parentElement).appendChild(this.alertContainer);
     }
 
     showAlert(params) {
-        let {
+        const {
             title,
             description,
             position = "top-right",
             type = "info",
             timeout = 1000,
             closeButton = true,
-            closeButtonSize = 20, // Default closeButtonSize
+            closeButtonSize = 20,
+            animation = null // Default closeButtonSize
         } = params;
 
         const secondsTimeOut = this.timeInMilliseconds(timeout);
-        const alertBox = document.createElement("div");
+        const alertBox = this.createAlertBox(title, description, type, animation, closeButton, closeButtonSize);
 
-        description = this.setMaxDescriptionLength(this.maxLength, description);
-
-
-        // Set the CSS alert type.
-        this.alertContainer.className = `alert-hub-container ${position}`;
-        alertBox.className = `alert-hub ${type}`;
-
-        // Set the content of the alert box using the provided title and description.
-        alertBox.innerHTML = `<div style = "width:90%">
-        <h2>${title}</h2>
-        <p>${description}</p>
-        </div>
-        ${closeButton ? this.createCloseButtonSvg(closeButtonSize) : ""}`;
+        this.configureAlertContainer(position);
+        this.alertContainer.appendChild(alertBox);
 
         if (closeButton) {
-            this.addCloseDialogByButton(alertBox);
+            this.CloseAlertOnClick(alertBox);
         }
 
-        this.alertContainer.appendChild(alertBox);
         this.timeoutAfter(secondsTimeOut, alertBox);
     }
+
+    createAlertBox(title, description, type, animation, closeButton, closeButtonSize) {
+        const alertBox = document.createElement("div");
+        alertBox.className = `alert-hub ${type} ${animation}`;
+
+        const content = `
+            <div style="width: 90%;">
+                <h2>${title}</h2>
+                <p>${this.setMaxDescriptionLength(this.maxLength, description)}</p>
+            </div>
+            ${closeButton ? this.createCloseButtonSvg(closeButtonSize) : ""}
+        `;
+
+        alertBox.innerHTML = content;
+        return alertBox;
+    }
+
+    configureAlertContainer(position) {
+        this.alertContainer.className = `alert-hub-container ${position}`;
+    }
+
     setMaxDescriptionLength(length, description) {
         if (description.length > length) {
-            description = description.substring(0, length)
+            description = description.substring(0, length);
         }
-
         return description;
     }
+
     createCloseButtonSvg(size) {
         return `
             <svg class="alert-hub-close-button" height="${size}" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -56,7 +66,7 @@ class AlertHub {
         `;
     }
 
-    addCloseDialogByButton(alertBox) {
+    CloseAlertOnClick(alertBox) {
         const closeButtonElement = alertBox.querySelector(".alert-hub-close-button");
         closeButtonElement.addEventListener("click", () => {
             this.alertContainer.removeChild(alertBox);
