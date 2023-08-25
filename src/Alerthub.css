@@ -44,7 +44,7 @@
     margin-bottom: 10px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    opacity: 1;
+    /* opacity: 1; */
 }
 
 .fade-in {
@@ -54,14 +54,11 @@
     animation-duration: 0.5s;
 }
 
-.slide-in {
-    transition: transform .5s ease;
-    transform: translateX(0);
-}
-
-.slide-out {
-    transition: transform .5s ease;
-    transform: translateX(200%);
+.fade-out {
+    animation-name: fadeOutOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-duration: 0.5s;
 }
 
 @keyframes fadeInOpacity {
@@ -69,6 +66,30 @@
         opacity: 0;
     }
     100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOutOpacity {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.slide-in {
+    animation: slide-in;
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
         opacity: 1;
     }
 }
@@ -121,15 +142,12 @@
     color: white;
 }
 
-@media (min-width: 766px) {
-    .alert-hub-container {
-        max-width: 40%;
-    }
-}
 
-@media (max-width: 399px) {
+/* Small devices (landscape phones, 576px and up) */
+
+@media (min-width: 576px) {
     .alert-hub-container {
-        max-width: 100%;
+        max-width: 80%;
     }
     .alert-hub-container.top-right {
         top: 20px;
@@ -146,5 +164,41 @@
     .alert-hub-container.bottom-left {
         bottom: 20px;
         left: 0px;
+    }
+}
+
+
+/* Medium devices (tablets, 768px and up) */
+
+@media (min-width: 768px) {
+    .alert-hub-container {
+        max-width: 40%;
+    }
+}
+
+
+/* Large devices (desktops, 992px and up) */
+
+@media (min-width: 992px) {
+    .alert-hub-container {
+        max-width: 30%;
+    }
+}
+
+
+/* Extra large devices (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {
+    .alert-hub-container {
+        max-width: 30%;
+    }
+}
+
+
+/* Extra extra large devices (larger desktops, 1400px and up) */
+
+@media (min-width: 1400px) {
+    .alert-hub-container {
+        max-width: 20%;
     }
 }

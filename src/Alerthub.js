@@ -3,6 +3,7 @@ class AlertHub {
 
     constructor(parentElement = "body") {
         this.defaultExitButtonSize = 20
+        this.defaultAnimationName = ""
         this.maxLength = 150;
         this.alertContainer = document.createElement("div");
         this.alertContainer.className = "alert-hub-container top-right";
@@ -15,13 +16,16 @@ class AlertHub {
             description,
             position = "top-right",
             type = "info",
-            timeout = 2.5,
+            timeout = 2,
             closeButton = true,
             closeButtonSize = this.defaultExitButtonSize,
             animation = null
         } = params;
 
-        if (closeButtonSize < 15 || closeButtonSize > 31) {
+
+        this.defaultAnimationName = animation
+
+        if (closeButtonSize < 15 || closeButtonSize > 30) {
             closeButtonSize = this.ResetCloseButtonSize();
         }
 
@@ -39,7 +43,42 @@ class AlertHub {
         this.timeoutAfter(secondsTimeOut, alertBox);
     }
 
+    addAnimation(animationName) {
 
+        let animation = {
+            'opening-animation': '',
+            'closing-animation': ''
+        }
+
+        switch (animationName) {
+            case "fade-in":
+                animation['opening-animation'] = 'fade-in'
+                animation['closing-animation'] = 'fade-out'
+                break;
+
+            default:
+                animation['opening-animation'] = ''
+                animation['closing-animation'] = ''
+        }
+
+        return animation;
+    }
+
+
+
+
+    CloseAlert(alertBox) {
+        let animation = this.addAnimation(this.defaultAnimationName)
+
+
+        alertBox.classList.replace(animation['opening-animation'], animation['closing-animation'])
+
+        console.log(alertBox)
+        alertBox.addEventListener('animationend', () => {
+            this.alertContainer.removeChild(alertBox);
+        })
+
+    }
 
     ResetCloseButtonSize() {
         return this.defaultExitButtonSize
@@ -81,18 +120,20 @@ class AlertHub {
     }
 
     CloseAlertOnClick(alertBox) {
-        const closeButtonElement = alertBox.querySelector(".alert-hub-close-button");
+        const closeButtonElement = alertBox.querySelector(`.alert-hub-close-button`);
         closeButtonElement.addEventListener("click", () => {
-            this.alertContainer.removeChild(alertBox);
+            this.CloseAlert(alertBox)
         });
     }
+
+
 
     timeoutAfter(timeout, alertBox) {
         if (timeout < 0) {
             return;
         }
         setTimeout(() => {
-            this.alertContainer.removeChild(alertBox);
+            this.CloseAlert(alertBox)
         }, timeout);
     }
 
