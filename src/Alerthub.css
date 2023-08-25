@@ -54,6 +54,16 @@
     animation-duration: 0.5s;
 }
 
+.slide-in {
+    transition: transform .5s ease;
+    transform: translateX(0);
+}
+
+.slide-out {
+    transition: transform .5s ease;
+    transform: translateX(200%);
+}
+
 @keyframes fadeInOpacity {
     0% {
         opacity: 0;

@@ -1,5 +1,8 @@
 class AlertHub {
+
+
     constructor(parentElement = "body") {
+        this.defaultExitButtonSize = 20
         this.maxLength = 150;
         this.alertContainer = document.createElement("div");
         this.alertContainer.className = "alert-hub-container top-right";
@@ -7,16 +10,20 @@ class AlertHub {
     }
 
     showAlert(params) {
-        const {
+        let {
             title,
             description,
             position = "top-right",
             type = "info",
             timeout = 1000,
             closeButton = true,
-            closeButtonSize = 20,
-            animation = null // Default closeButtonSize
+            closeButtonSize = this.defaultExitButtonSize,
+            animation = null
         } = params;
+
+        if (closeButtonSize < 15 || closeButtonSize > 30) {
+            closeButtonSize = this.ResetCloseButtonSize();
+        }
 
         const secondsTimeOut = this.timeInMilliseconds(timeout);
         const alertBox = this.createAlertBox(title, description, type, animation, closeButton, closeButtonSize);
@@ -29,6 +36,12 @@ class AlertHub {
         }
 
         this.timeoutAfter(secondsTimeOut, alertBox);
+    }
+
+
+
+    ResetCloseButtonSize() {
+        return this.defaultExitButtonSize
     }
 
     createAlertBox(title, description, type, animation, closeButton, closeButtonSize) {

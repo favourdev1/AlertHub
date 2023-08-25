@@ -12,10 +12,10 @@
 
 <body>
 
-    <button id="show-alert-button">hello world</button>
+    <button id="show-alert-button" class="btn btn-primary m-5">Click me!</button>
 
 
-
+    <!-- 
     <div class="container mt-5">
         <h1 class="mb-4">Sample Form with Bootstrap</h1>
         <form>
@@ -62,7 +62,7 @@
 
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-    </div>
+    </div> -->
 
     <script>
         const alertInstance = new AlertHub("body")
@@ -71,12 +71,10 @@
             alertInstance.showAlert({
                 title: "Success!",
                 description: "This is a custom alert message with a title.This is a custom alert message with a titleThis is a custom alert message with a title ",
-                type: "danger",
-                timeout: 6,
+                type: "",
                 closeButton: true,
-                position: "top-right",
-                closeButtonSize: 5,
-                animation: "fade-in"
+                closeButtonSize: 31,
+                animation: "slide-in"
             });
         });
     </script>
