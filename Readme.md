@@ -5,14 +5,17 @@ AlertHub is a lightweight JavaScript library for creating customizable alert mes
 
 ## Table of Contents
 - [Installation](#installation)
-- [Usage](#usage/Examples)
-- [Animations](#animations)
+- [Usage](#usage)
+- [Animations](#animation)
 - [Customization](#customization)
 - [Contributing](#contributing)
 - [License](#license)
+
+<br>
+
 ## Installation
 Install with NPM
-```javascript
+```css
  npm install alerthub --save 
  ```
 
@@ -57,6 +60,25 @@ alertHub.showAlert({
     animation: "fade-in", // Choose an animation: fade-in, slide-in, slide-in-right, slide-in-left (optional)
 });
 ```
+## Animation
+
+AlertHub provides several animation options that you can use when showing or closing alerts. You can choose from animations like "fade-in", "slide-in", "slide-in-left", "slide-in-right", and more.
+
+To apply an animation, provide the animation name when calling showAlert:
+
+
+
+
+
+```javascript
+alertHub.showAlert({
+    // Other parameters
+    animation: "slide-in-left"
+});
+```
+
+
+
 ## License
 
 This project is licensed under the [MIT License](https://choosealicense.com/licenses/mit/) - see the LICENSE file for details
@@ -71,3 +93,12 @@ See `contributing.md` for ways to get started.
 
 Please adhere to this project's `code of conduct`.
 
+## Contact
+
+If you have any questions, feedback, or need assistance, feel free to reach out:
+
+- Email: favourappps17@gmail.com
+- Twitter: [@favourdev](https://twitter.com/favourdev)
+- GitHub: [favourdev1](https://github.com/favourdev1)
+
+We appreciate your interest and welcome any contributions, suggestions, or bug reports!
