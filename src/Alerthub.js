@@ -15,13 +15,13 @@ class AlertHub {
             description,
             position = "top-right",
             type = "info",
-            timeout = 1000,
+            timeout = 2.5,
             closeButton = true,
             closeButtonSize = this.defaultExitButtonSize,
             animation = null
         } = params;
 
-        if (closeButtonSize < 15 || closeButtonSize > 30) {
+        if (closeButtonSize < 15 || closeButtonSize > 31) {
             closeButtonSize = this.ResetCloseButtonSize();
         }
 
@@ -35,6 +35,7 @@ class AlertHub {
             this.CloseAlertOnClick(alertBox);
         }
 
+        console.log(secondsTimeOut)
         this.timeoutAfter(secondsTimeOut, alertBox);
     }
 
