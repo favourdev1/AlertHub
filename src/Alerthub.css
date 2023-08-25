@@ -96,6 +96,11 @@
     cursor: pointer;
 }
 
+.alert-hub.primary {
+    background-color: var(--bg-primary);
+    color: white;
+}
+
 .alert-hub.info {
     background-color: var(--bg-info);
     color: white;
