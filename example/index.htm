@@ -22,14 +22,14 @@
 
         document.getElementById("show-alert-button").addEventListener("click", () => {
             alertInstance.showAlert({
-                title: "Success!",
+                title: "",
                 description: "This is a custom alert message with a title.This is a custom alert message with a titleThis is a custom alert message with a title ",
-                type: "danger",
+                type: "dark",
                 timeout: 3,
-                position: 'top-left',
-                closeButton: true,
+                position: 'bottom-right',
+                closeButton: false,
                 closeButtonSize: 30,
-                animation: "slide-in"
+                animation: "slide-in-right"
             });
         });
     </script>

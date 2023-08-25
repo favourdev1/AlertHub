@@ -60,6 +60,17 @@ class AlertHub {
                 animation['closing-animation'] = 'slide-out'
                 break;
 
+            case "slide-in-right":
+                animation['opening-animation'] = 'slide-in-right'
+                animation['closing-animation'] = 'slide-out-right'
+                break;
+
+
+            case "slide-in-left":
+                animation['opening-animation'] = 'slide-in-left'
+                animation['closing-animation'] = 'slide-out-left'
+                break;
+
             default:
                 animation['opening-animation'] = ''
                 animation['closing-animation'] = ''

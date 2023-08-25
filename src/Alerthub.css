@@ -79,15 +79,17 @@
     }
 }
 
+
+/* Apply the slide-in animation to an element */
+
 .slide-in {
-    animation: slide-in 0.5s linear;
+    animation: slideIn 0.5s ease-in-out;
 }
 
-.slide-out {
-    animation: slideOut 0.5s linear;
-}
 
-@keyframes slide-in {
+/* Keyframes animation for general slide-in */
+
+@keyframes slideIn {
     0% {
         transform: translateX(-100%);
         opacity: 0;
@@ -98,13 +100,62 @@
     }
 }
 
-@keyframes slideOut {
+.slide-in-left {
+    animation: slideInLeft 0.5s linear;
+}
+
+.slide-out-left {
+    animation: slideOutToLeft 0.5s linear;
+}
+
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutToLeft {
     0% {
         transform: translateX(0);
         opacity: 1;
     }
     100% {
         transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+.slide-in-right {
+    animation: slideInRight 0.5s linear;
+}
+
+.slide-out-right {
+    animation: slideOutToRight 0.5s linear;
+}
+
+@keyframes slideInRight {
+    0% {
+        transform: translateX(200%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutToRight {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(200%);
         opacity: 0;
     }
 }
@@ -154,6 +205,11 @@
 .alert-hub.error,
 .alert-hub.danger {
     background-color: var(--bg-danger);
+    color: white;
+}
+
+.alert-hub.dark {
+    background-color: var(--bg-dark);
     color: white;
 }
 
