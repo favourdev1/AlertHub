@@ -5,7 +5,7 @@ AlertHub is a lightweight JavaScript library for creating customizable alert mes
 
 ## Table of Contents
 - [Installation](#installation)
-- [Usage](#usage)
+- [Usage](#usage/examples)
 - [Animations](#animation)
 - [Customization](#customization)
 - [Contributing](#contributing)
