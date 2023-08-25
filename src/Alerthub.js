@@ -55,6 +55,10 @@ class AlertHub {
                 animation['opening-animation'] = 'fade-in'
                 animation['closing-animation'] = 'fade-out'
                 break;
+            case "slide-in":
+                animation['opening-animation'] = 'slide-in'
+                animation['closing-animation'] = 'slide-out'
+                break;
 
             default:
                 animation['opening-animation'] = ''
