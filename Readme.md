@@ -37,7 +37,7 @@ Include the **JavaScript** file alerthub.js in your HTML:
   
 
 ## Customization
-AlertHub allows you to customize various aspects of the alerts, including title, description, position, type, timeout, and more. You can also customize the appearance by modifying the CSS in the provided CustomAlert.css file.
+AlertHub allows you to customize various aspects of the alerts, including title, description, position, type, timeout, and more. You can also customize the appearance by modifying the CSS in your css file .
 ## Usage/Examples
 
 

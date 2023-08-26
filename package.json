@@ -1,7 +1,7 @@
 {
     "name": "alerthub",
     "version": "1.0.1",
-    "description": "AlertHub allows you to customize various aspects of the alerts, including title, description, position, type, timeout, and more. You can also customize the appearance by modifying the CSS in the provided CustomAlert.css file. ",
+    "description": "AlertHub allows you to customize various aspects of the alerts, including title, description, position, type, timeout, and more. ",
     "main": "index.js",
     "scripts": {
         "minify-js": "terser src/Alerthub.js -o dist/js/alerthub.min.js",
