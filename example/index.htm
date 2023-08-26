@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" href="../src/Alerthub.css">
-    <script src="../src/Alerthub.js"></script>
+    <!-- <link rel="stylesheet" href="../src/Alerthub.css">
+    <script src="../src/Alerthub.js"></script> -->
+
+    <link rel="stylesheet" href="../node_modules/alerthub/dist/css/Alerthub.min.css">
+    <script src="../node_modules/alerthub/dist/js/alerthub.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
@@ -18,18 +21,13 @@
 
 
     <script>
-        const alertInstance = new AlertHub("body")
+        const alertInstance = new AlertHub()
 
         document.getElementById("show-alert-button").addEventListener("click", () => {
             alertInstance.showAlert({
                 title: "",
                 description: "This is a custom alert message with a title.This is a custom alert message with a titleThis is a custom alert message with a title ",
-                type: "dark",
-                timeout: 3,
-                position: 'bottom-right',
-                closeButton: false,
-                closeButtonSize: 30,
-                animation: "slide-in-right"
+                timeout: 30
             });
         });
     </script>

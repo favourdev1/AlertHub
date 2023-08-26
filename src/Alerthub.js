@@ -19,7 +19,7 @@ class AlertHub {
             timeout = 2,
             closeButton = true,
             closeButtonSize = this.defaultExitButtonSize,
-            animation = null
+            animation = 'no-animation'
         } = params;
 
 
