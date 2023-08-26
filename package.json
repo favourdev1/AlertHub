@@ -23,6 +23,6 @@
         "terser": "^5.19.2"
     },
     "dependencies": {
-        "alerthub": "^1.0.0"
+        "alerthub": "^1.0.1"
     }
 }
