@@ -1,25 +1,42 @@
 class AlertHub {
 
 
-    constructor(parentElement = "body") {
+    constructor(parentElement = "body", params = {}) {
         this.defaultExitButtonSize = 20
         this.defaultAnimationName = ""
         this.maxLength = 150;
         this.alertContainer = document.createElement("div");
         this.alertContainer.className = "alert-hub-container top-right";
         document.querySelector(parentElement).appendChild(this.alertContainer);
+        let {
+            position = "top-right",
+                type = "info",
+                timeout = 2,
+                closeButton = true,
+                closeButtonSize = this.defaultExitButtonSize,
+                animation = 'no-animation'
+        } = params;
+
+
+        this.position = position
+        this.type = type
+        this.timeout = timeout;
+        this.closeButton = closeButton
+        this.closeButtonSize = closeButtonSize
+        this.animation = animation
+
     }
 
     showAlert(params) {
         let {
             title,
             description,
-            position = "top-right",
-            type = "info",
-            timeout = 2,
-            closeButton = true,
-            closeButtonSize = this.defaultExitButtonSize,
-            animation = 'no-animation'
+            position = this.position,
+            type = this.type,
+            timeout = this.timeout,
+            closeButton = this.closeButton,
+            closeButtonSize = this.closeButtonSize,
+            animation = this.animation
         } = params;
 
 
@@ -39,7 +56,7 @@ class AlertHub {
             this.CloseAlertOnClick(alertBox);
         }
 
-        console.log(secondsTimeOut)
+
         this.timeoutAfter(secondsTimeOut, alertBox);
     }
 
@@ -88,7 +105,8 @@ class AlertHub {
 
         alertBox.classList.replace(animation['opening-animation'], animation['closing-animation'])
 
-        console.log(alertBox)
+
+
         alertBox.addEventListener('animationend', () => {
             this.alertContainer.removeChild(alertBox);
         })
