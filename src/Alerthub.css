@@ -86,6 +86,10 @@
     animation: slideIn 0.5s ease-in-out;
 }
 
+.slide-out {
+    animation: slideOut 0.5s ease-in-out;
+}
+
 
 /* Keyframes animation for general slide-in */
 
@@ -97,6 +101,17 @@
     100% {
         transform: translateX(0);
         opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-100%);
+        opacity: 0;
     }
 }
 
