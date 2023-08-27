@@ -1,7 +1,8 @@
 class AlertHub {
 
 
-    constructor(parentElement = "body", params = {}) {
+    constructor(params = {}) {
+        const parentElement = "body"
         this.defaultExitButtonSize = 20
         this.defaultAnimationName = ""
         this.maxLength = 150;
