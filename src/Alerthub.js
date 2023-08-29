@@ -1,10 +1,9 @@
-class AlertHub {
-
-
+class AlertHub extends icon {
     constructor(params = {}) {
-        const parentElement = "body"
-        this.defaultExitButtonSize = 20
-        this.defaultAnimationName = ""
+        super();
+        const parentElement = "body";
+        this.defaultExitButtonSize = 20;
+        this.defaultAnimationName = "";
         this.maxLength = 150;
         this.alertContainer = document.createElement("div");
         this.alertContainer.className = "alert-hub-container top-right";
@@ -15,17 +14,17 @@ class AlertHub {
                 timeout = 2,
                 closeButton = true,
                 closeButtonSize = this.defaultExitButtonSize,
-                animation = 'no-animation'
+                animation = "no-animation",
+                icon = "",
         } = params;
 
-
-        this.position = position
-        this.type = type
+        this.position = position;
+        this.type = type;
         this.timeout = timeout;
-        this.closeButton = closeButton
-        this.closeButtonSize = closeButtonSize
-        this.animation = animation
-
+        this.closeButton = closeButton;
+        this.closeButtonSize = closeButtonSize;
+        this.animation = animation;
+        this.icon = icon;
     }
 
     showAlert(params) {
@@ -37,18 +36,28 @@ class AlertHub {
             timeout = this.timeout,
             closeButton = this.closeButton,
             closeButtonSize = this.closeButtonSize,
-            animation = this.animation
+            animation = this.animation,
+            icon = this.icon,
+            showIcon = true,
         } = params;
 
-
-        this.defaultAnimationName = animation
+        this.defaultAnimationName = animation;
 
         if (closeButtonSize < 15 || closeButtonSize > 30) {
             closeButtonSize = this.ResetCloseButtonSize();
         }
 
         const secondsTimeOut = this.timeInMilliseconds(timeout);
-        const alertBox = this.createAlertBox(title, description, type, animation, closeButton, closeButtonSize);
+
+        const alertBox = this.createAlertBox(
+            title,
+            description,
+            type,
+            animation,
+            closeButton,
+            closeButtonSize,
+            showIcon
+        );
 
         this.configureAlertContainer(position);
         this.alertContainer.appendChild(alertBox);
@@ -57,85 +66,121 @@ class AlertHub {
             this.CloseAlertOnClick(alertBox);
         }
 
-
         this.timeoutAfter(secondsTimeOut, alertBox);
     }
 
-    addAnimation(animationName) {
-
-        let animation = {
-            'opening-animation': '',
-            'closing-animation': ''
+    addIcon(alertType) {
+        let iconImage;
+        switch (alertType) {
+            case "success":
+                iconImage = this.SuccessIcon();
+                break;
+            case "error":
+                iconImage = this.ErrorIcon();
+            default:
+                iconImage = document.createElement("div");
         }
+
+        return iconImage;
+    }
+
+    addAnimation(animationName) {
+        let animation = {
+            "opening-animation": "",
+            "closing-animation": "",
+        };
 
         switch (animationName) {
             case "fade-in":
-                animation['opening-animation'] = 'fade-in'
-                animation['closing-animation'] = 'fade-out'
+                animation["opening-animation"] = "fade-in";
+                animation["closing-animation"] = "fade-out";
                 break;
             case "slide-in":
-                animation['opening-animation'] = 'slide-in'
-                animation['closing-animation'] = 'slide-out'
+                animation["opening-animation"] = "slide-in";
+                animation["closing-animation"] = "slide-out";
                 break;
 
             case "slide-in-right":
-                animation['opening-animation'] = 'slide-in-right'
-                animation['closing-animation'] = 'slide-out-right'
+                animation["opening-animation"] = "slide-in-right";
+                animation["closing-animation"] = "slide-out-right";
                 break;
 
-
             case "slide-in-left":
-                animation['opening-animation'] = 'slide-in-left'
-                animation['closing-animation'] = 'slide-out-left'
+                animation["opening-animation"] = "slide-in-left";
+                animation["closing-animation"] = "slide-out-left";
                 break;
 
             default:
-                animation['opening-animation'] = ''
-                animation['closing-animation'] = ''
+                animation["opening-animation"] = "";
+                animation["closing-animation"] = "";
         }
 
         return animation;
     }
 
-
-
-
-    CloseAlert(alertBox) {
-        let animation = this.addAnimation(this.defaultAnimationName)
-
-
-        alertBox.classList.replace(animation['opening-animation'], animation['closing-animation'])
-
-
-
-        alertBox.addEventListener('animationend', () => {
-            this.alertContainer.removeChild(alertBox);
-        })
-
-    }
-
-    ResetCloseButtonSize() {
-        return this.defaultExitButtonSize
-    }
-
-    createAlertBox(title, description, type, animation, closeButton, closeButtonSize) {
+    createAlertBox(
+        title,
+        description,
+        type,
+        animation,
+        closeButton,
+        closeButtonSize,
+        showIcon
+    ) {
         const alertBox = document.createElement("div");
         alertBox.className = `alert-hub ${type} ${animation}`;
 
-        const content = `
-            <div style="width: 90%;">
-                <h2>${title}</h2>
-                <p>${this.setMaxDescriptionLength(this.maxLength, description)}</p>
-            </div>
-            ${closeButton ? this.createCloseButtonSvg(closeButtonSize) : ""}
-        `;
+        if (showIcon) {
+            alertBox.appendChild(this.addIcon(type));
+        }
+        console.log(this.addIcon(type));
+        const contentContainer = document.createElement("div");
+        contentContainer.style.width = "90%";
 
-        alertBox.innerHTML = content;
+        contentContainer.appendChild(this.titleText(title));
+
+        contentContainer.appendChild(this.descriptionText(description));
+        if (closeButton) {
+            contentContainer.appendChild(this.createCloseButtonSvg(closeButtonSize));
+        }
+        alertBox.append(contentContainer);
         return alertBox;
     }
 
+    titleText(content) {
+        const titletext = document.createElement("h2");
+        titletext.innerHTML = content;
+        return titletext;
+    }
+
+    descriptionText(content) {
+        const descriptiontext = document.createElement("p");
+        descriptiontext.innerHTML = content;
+
+        return this.setMaxDescriptionLength(this.maxLength, descriptiontext);
+    }
+
+    CloseAlert(alertBox) {
+        let animation = this.addAnimation(this.defaultAnimationName);
+
+        alertBox.classList.replace(
+            animation["opening-animation"],
+            animation["closing-animation"]
+        );
+
+        alertBox.addEventListener("animationend", () => {
+            this.alertContainer.removeChild(alertBox);
+        });
+    }
+
+    ResetCloseButtonSize() {
+        return this.defaultExitButtonSize;
+    }
+
     configureAlertContainer(position) {
-        this.alertContainer.className = `alert-hub-container ${position}`;
+        this.alertContainer.className = `
+            alert-hub-container ${position}
+            `;
     }
 
     setMaxDescriptionLength(length, description) {
@@ -146,28 +191,38 @@ class AlertHub {
     }
 
     createCloseButtonSvg(size) {
-        return `
-            <svg class="alert-hub-close-button" height="${size}" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-        `;
+        return ` <
+            svg class = "alert-hub-close-button"
+            height = "${size}"
+            xmlns = "http://www.w3.org/2000/svg"
+            fill = "none"
+            viewBox = "0 0 24 24"
+            stroke - width = "1.5"
+            stroke = "currentColor" >
+                <
+                path stroke - linecap = "round"
+            stroke - linejoin = "round"
+            d = "M6 18L18 6M6 6l12 12" / >
+                <
+                /svg>
+            `;
     }
 
     CloseAlertOnClick(alertBox) {
-        const closeButtonElement = alertBox.querySelector(`.alert-hub-close-button`);
+        const closeButtonElement = alertBox.querySelector(
+            `.alert - hub - close - button `
+        );
         closeButtonElement.addEventListener("click", () => {
-            this.CloseAlert(alertBox)
+            this.CloseAlert(alertBox);
         });
     }
-
-
 
     timeoutAfter(timeout, alertBox) {
         if (timeout < 0) {
             return;
         }
         setTimeout(() => {
-            this.CloseAlert(alertBox)
+            this.CloseAlert(alertBox);
         }, timeout);
     }
 

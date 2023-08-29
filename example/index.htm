@@ -6,30 +6,46 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="../src/Alerthub.css">
+    <script src="../src/icon.js"></script>
     <script src="../src/Alerthub.js"></script>
 
     <!-- <link rel="stylesheet" href="../node_modules/alerthub/dist/css/Alerthub.min.css">
-    <script src="../node_modules/alerthub/dist/js/alerthub.min.js"></script> -->
+            <script src="../node_modules/alerthub/dist/js/alerthub.min.js"></script> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 </head>
 
 <body>
 
     <button id="show-alert-button" class="btn btn-primary m-5">Click me!</button>
-
-
+    <button id="btn" class="btn btn-secondary">Click here again
+        <i class='bx bxl-facebook-square'></i> </button>
 
 
     <script>
-        const alertInstance = new AlertHub()
+        const alertInstance = new AlertHub({
+            timeout: 30,
+            animation: 'fade-in',
+            closeButton: false,
+            type: "success"
+        })
 
         document.getElementById("show-alert-button").addEventListener("click", () => {
             alertInstance.showAlert({
                 title: "",
+                description: "This is a custom alert message with a title.This is a custom alert message with a titleThis is a custom alert message with a title "
+            });
+        });
+
+        const button = document.getElementById("btn")
+        button.addEventListener("click", () => {
+
+            alertInstance.showAlert({
+                title: "This is another title",
                 description: "This is a custom alert message with a title.This is a custom alert message with a titleThis is a custom alert message with a title ",
-                timeout: 30,
-                animation: 'slide-in',
-                closeButton: true
+                timeout: 3,
+
             });
         });
     </script>
