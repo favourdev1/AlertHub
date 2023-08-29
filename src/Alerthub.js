@@ -178,9 +178,7 @@ class AlertHub extends icon {
     }
 
     configureAlertContainer(position) {
-        this.alertContainer.className = `
-            alert-hub-container ${position}
-            `;
+        this.alertContainer.className = `alert-hub-container ${position}`;
     }
 
     setMaxDescriptionLength(length, description) {
