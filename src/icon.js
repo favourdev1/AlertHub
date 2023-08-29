@@ -4,19 +4,22 @@ class icon {
         // Create an SVG element
         const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+        svg.setAttribute("fill", "none");
+        svg.style.width = '25px'
+        svg.style.marginRight = '10px'
         svg.setAttribute("viewBox", "0 0 24 24");
-        svg.setAttribute("fill", "currentColor");
-        svg.setAttribute("class", "w-6 h-6");
+        svg.setAttribute("stroke-width", "1.5");
+        svg.setAttribute("stroke", "currentColor");
+        svg.setAttribute("class", "w-4 h-4");
 
         // Create a path element and set attributes
         const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-        path.setAttribute("fill-rule", "evenodd");
-        path.setAttribute("d", "M19.916 4.626a.75.75 0 01.208 1.04l-9 13.5a.75.75 0 01-1.154.114l-6-6a.75.75 0 011.06-1.06l5.353 5.353 8.493-12.739a.75.75 0 011.04-.208z");
-        path.setAttribute("clip-rule", "evenodd");
+        path.setAttribute("stroke-linecap", "round");
+        path.setAttribute("stroke-linejoin", "round");
+        path.setAttribute("d", "M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z");
 
         // Append the path element to the SVG element
         svg.appendChild(path);
-
         // Return the created SVG element
         return svg;
     }
@@ -26,10 +29,12 @@ class icon {
         const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
         svg.setAttribute("fill", "none");
+        svg.style.width = '25px'
+        svg.style.marginRight = '10px'
         svg.setAttribute("viewBox", "0 0 24 24");
         svg.setAttribute("stroke-width", "1.5");
         svg.setAttribute("stroke", "currentColor");
-        svg.setAttribute("class", "w-6 h-6");
+        svg.setAttribute("class", "w-4 h-4");
 
         // Create a path element and set attributes
         const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
