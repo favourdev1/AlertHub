@@ -28,13 +28,14 @@
             timeout: 300,
             animation: 'fade-in',
             closeButton: false,
-            type: "success"
+            type: "error"
         })
 
         document.getElementById("show-alert-button").addEventListener("click", () => {
             alertInstance.showAlert({
                 title: "",
-                description: "This is a custom alert message with a title.This is a custom alert message with a titleThis is a custom alert message with a title "
+
+                description: "Error Please try again after sometime",
             });
         });
 
@@ -43,7 +44,7 @@
 
             alertInstance.showAlert({
                 title: "This is another title",
-                description: "This is a custom alert message with a title.This is a custom alert message with a titleThis is a custom alert message with a title ",
+                description: "Error Please try again",
                 timeout: 3,
 
             });
