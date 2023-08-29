@@ -13,6 +13,11 @@ AlertHub is a lightweight JavaScript library for creating customizable alert mes
 
 <br>
 
+
+
+![Error Screenshot](image-1.png)
+![Success Screenshot](image.png)
+![Dark Alert](image-2.png)
 ## Installation
 Install with NPM
 ```css
