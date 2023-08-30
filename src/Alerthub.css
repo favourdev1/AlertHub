@@ -12,8 +12,8 @@
     --bg-muted: #6c757d;
     --bg-white: #fff;
     position: fixed;
-    /* top: 20px;
-    right: 20px; */
+    top: 20px;
+    /* right: 20px; */
     padding: 10px;
     z-index: 99999;
     width: 100%;

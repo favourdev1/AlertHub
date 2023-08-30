@@ -82,6 +82,10 @@ class AlertHub extends icon {
             case "info":
                 iconImage = this.InfoIcon();
                 break
+
+            case alertType.includes("ba"):
+                console.log("contains value")
+                break
             default:
                 iconImage = document.createElement("div");
                 break
