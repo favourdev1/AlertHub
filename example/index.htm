@@ -28,14 +28,14 @@
             timeout: 300,
             animation: 'fade-in',
             closeButton: false,
-            type: "dark"
+            type: "success"
         })
 
         document.getElementById("show-alert-button").addEventListener("click", () => {
             alertInstance.showAlert({
                 title: "",
 
-                description: "Kindly  try again later",
+                description: "<h2>Hello world</h2>",
             });
         });
 
@@ -45,8 +45,8 @@
             alertInstance.showAlert({
                 title: "This is another title",
                 description: "Error Please try again",
-                timeout: 3,
-
+                timeout: 300,
+                type: "info"
             });
         });
     </script>

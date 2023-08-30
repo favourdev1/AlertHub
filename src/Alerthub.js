@@ -81,6 +81,7 @@ class AlertHub extends icon {
 
             case "info":
                 iconImage = this.InfoIcon();
+                break
             default:
                 iconImage = document.createElement("div");
                 break
