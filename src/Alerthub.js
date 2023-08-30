@@ -77,8 +77,12 @@ class AlertHub extends icon {
                 break;
             case "error":
                 iconImage = this.ErrorIcon();
+                break;
+
+
             default:
                 iconImage = document.createElement("div");
+                break
         }
 
         return iconImage;
@@ -133,7 +137,7 @@ class AlertHub extends icon {
         if (showIcon) {
             alertBox.appendChild(this.addIcon(type));
         }
-        console.log(this.addIcon(type));
+        // console.log(this.addIcon(type));
         const contentContainer = document.createElement("div");
         contentContainer.style.width = "90%";
 
