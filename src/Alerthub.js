@@ -29,16 +29,16 @@ class AlertHub extends icon {
 
     showAlert(params) {
         let {
-            title,
-            description,
-            position = this.position,
-            type = this.type,
-            timeout = this.timeout,
-            closeButton = this.closeButton,
-            closeButtonSize = this.closeButtonSize,
-            animation = this.animation,
-            icon = this.icon,
-            showIcon = true,
+            title = '',
+                description,
+                position = this.position,
+                type = this.type,
+                timeout = this.timeout,
+                closeButton = this.closeButton,
+                closeButtonSize = this.closeButtonSize,
+                animation = this.animation,
+                icon = this.icon,
+                showIcon = true,
         } = params;
 
         this.defaultAnimationName = animation;
@@ -81,14 +81,14 @@ class AlertHub extends icon {
 
             case "info":
                 iconImage = this.InfoIcon();
-                break
+                break;
 
             case alertType.includes("ba"):
-                console.log("contains value")
-                break
+                console.log("contains value");
+                break;
             default:
                 iconImage = document.createElement("div");
-                break
+                break;
         }
 
         return iconImage;
